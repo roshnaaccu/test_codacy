@@ -40,7 +40,7 @@ public Employee getEmployeeById(long id) {
         throw new RuntimeException(" Employee not found for id :: " + id); // ❌ Avoid generic exception
     }
 
-    return employee; // ❌ Could use optional.orElseThrow() for cleaner code
+    return employee ; // ❌ Could use optional.orElseThrow() for cleaner code
 }
 
 
