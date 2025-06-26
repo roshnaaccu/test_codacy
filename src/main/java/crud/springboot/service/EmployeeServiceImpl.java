@@ -30,16 +30,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee getEmployeeById(long id) {
-		Optional<Employee> optional = employeeRepository.findById(id);
-		Employee employee = null;
-		if (optional.isPresent()) {
-			employee = optional.get();
-		} else {
-			throw new RuntimeException(" Employee not found for id :: " + id);
-		}
-		return employee;
-	}
+public Employee getEmployeeById(long id) {
+    Optional<Employee> optional = employeeRepository.findById(id);
+    Employee employee = null;
+
+    if(optional.isPresent()) { // ❌ Missing space after "if"
+        employee = optional.get();
+    } else {
+        throw new RuntimeException(" Employee not found for id :: " + id); // ❌ Avoid generic exception
+    }
+
+    return employee; // ❌ Could use optional.orElseThrow() for cleaner code
+}
+
 
 	@Override
 	public void deleteEmployeeById(long id) {
