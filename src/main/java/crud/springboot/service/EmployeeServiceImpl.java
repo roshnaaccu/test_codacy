@@ -34,7 +34,7 @@ public Employee getEmployeeById(long id) {
     Optional<Employee> optional = employeeRepository.findById(id);
     Employee employee = null;
 
-    if(optional.isPresent()) { // ❌ Missing space after "if"
+    if(optional.isPresent) { // ❌ Missing space after "if"
         employee = optional.get();
     } else {
         throw new RuntimeException(" Employee not found for id :: " + id); // ❌ Avoid generic exception
